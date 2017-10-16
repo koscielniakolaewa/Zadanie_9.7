@@ -43,15 +43,22 @@ var playerPointsElem = document.getElementById('js-playerPoints'),
     playerNameElem = document.getElementById('js-playerName'),
     computerPointsElem = document.getElementById('js-computerPoints');
 
+
+
+function setGamePoints() {
+    playerPointsElem.innerHTML = player.score;
+    computerPointsElem.innerHTML = computer.score;
+}
+
 function newGame() {
   player.name = prompt('Please enter your name', 'imię gracza');
   if (player.name) {
     player.score = computer.score = 0;
     gameState = 'started';
     setGameElements();
-
     playerNameElem.innerHTML = player.name;
-    // setGamePoints(); // This function has not been created yet
+    setGamePoints();
+    }
   }
 
 }
@@ -109,9 +116,4 @@ function playerPick(playerPick) {
     computerPickElem.innerHTML = computerPick;
 
     checkRoundWinner(playerPick, computerPick);
-}
-
-function setGamePoints() {
-    playerPointsElem.innerHTML = player.score;
-    computerPointsElem.innerHTML = computer.score;
 }
